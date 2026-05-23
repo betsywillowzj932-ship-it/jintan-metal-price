@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>金坛废钢废铜报价看板</title>
+  <style>
+    :root {
+      --bg: #f3f5f2;
+      --paper: #ffffff;
+      --ink: #1c2521;
+      --muted: #66736c;
+      --line: #dbe3dd;
+      --steel: #2f6f8f;
+      --steel-soft: #e5f1f5;
+      --copper: #a75c28;
+      --copper-soft: #f8eadf;
+      --green: #197c55;
+      --green-soft: #e5f4ed;
+      --warn: #8a6417;
+      --warn-soft: #fff6dc;
+      --shadow: 0 12px 28px rgba(28, 37, 33, .08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", Arial, sans-serif;
+      letter-spacing: 0;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button {
+      min-height: 36px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      cursor: pointer;
+      padding: 7px 11px;
+      transition: .16s ease;
+    }
+
+    button:hover {
+      border-color: #aebfb6;
+      transform: translateY(-1px);
+    }
+
+    button.active {
+      border-color: var(--green);
+      background: var(--green);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    input,
+    select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      min-height: 38px;
+      padding: 8px 10px;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(25, 124, 85, .12);
+    }
+
+    .page {
+      width: min(1240px, calc(100vw - 28px));
+      margin: 0 auto;
+      padding: 18px 0 30px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: end;
+      padding-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(26px, 3vw, 40px);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .subline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .clock {
+      min-width: 230px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      padding: 12px 14px;
+      text-align: right;
+    }
+
+    .clock strong {
+      display: block;
+      font-size: 18px;
+    }
+
+    .clock span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .card,
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .card {
+      padding: 13px;
+      min-height: 118px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .card label {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .card strong {
+      font-size: 25px;
+      line-height: 1.1;
+    }
+
+    .card small {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .steel {
+      background: var(--steel-soft);
+      border-color: #cfe2e8;
+    }
+
+    .copper {
+      background: var(--copper-soft);
+      border-color: #ead4c1;
+    }
+
+    .green {
+      background: var(--green-soft);
+      border-color: #c8e7d9;
+    }
+
+    .warn {
+      background: var(--warn-soft);
+      border-color: #ead89e;
+    }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: 1fr 160px auto;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .toggles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .panel {
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      background: #f7faf8;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      padding: 6px 9px;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .table-wrap {
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 860px;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 13px;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid var(--line);
+      padding: 9px 8px;
+      text-align: left;
+      vertical-align: top;
+      overflow-wrap: anywhere;
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      background: #f8faf8;
+      color: var(--muted);
+      font-weight: 700;
+      z-index: 1;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .num {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .price {
+      font-weight: 800;
+      color: var(--green);
+      font-size: 15px;
+    }
+
+    .type-pill {
+      display: inline-block;
+      min-width: 44px;
+      text-align: center;
+      border-radius: 999px;
+      padding: 4px 8px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .type-steel {
+      background: var(--steel);
+    }
+
+    .type-copper {
+      background: var(--copper);
+    }
+
+    .note {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .calc {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      align-items: end;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .field label {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .calc-result {
+      grid-column: 1 / -1;
+      border-radius: 8px;
+      background: var(--green-soft);
+      border: 1px solid #c8e7d9;
+      padding: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 8px 18px;
+    }
+
+    .calc-result strong {
+      color: var(--green);
+      font-size: 24px;
+    }
+
+    .calc-result span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 960px) {
+      header,
+      .summary,
+      .grid,
+      .toolbar,
+      .calc {
+        grid-template-columns: 1fr;
+      }
+
+      .clock {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div>
+        <h1>金坛废钢废铜报价看板</h1>
+        <div class="subline">
+          <span>江苏常州金坛</span>
+          <span>废钢按沙钢常州基地料型</span>
+          <span>废铜按公开市场价折算</span>
+        </div>
+      </div>
+      <div class="clock">
+        <strong id="todayText">--</strong>
+        <span id="timeText">--</span>
+      </div>
+    </header>
+
+    <section class="summary">
+      <div class="card steel">
+        <label>废钢最高参考</label>
+        <strong id="steelMax">--</strong>
+        <small>沙钢常州基地执行价，单位元/吨</small>
+      </div>
+      <div class="card steel">
+        <label>常用重废参考</label>
+        <strong>2261</strong>
+        <small>重废1，到手价约 1.131 元/斤</small>
+      </div>
+      <div class="card copper">
+        <label>普光参考</label>
+        <strong>91.10/kg</strong>
+        <small>5月22日公开市场普通光亮价折算</small>
+      </div>
+      <div class="card copper">
+        <label>低压缆粗参考</label>
+        <strong>91.30/kg</strong>
+        <small>5月22日公开市场缆粗价折算</small>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="toolbar">
+        <input id="searchInput" placeholder="输入料型快速筛选，例如：普光、清光、高压、钢筋、压块、黄铜">
+        <select id="sortSelect" aria-label="排序">
+          <option value="default">默认排序</option>
+          <option value="high">价格从高到低</option>
+          <option value="low">价格从低到高</option>
+        </select>
+        <div class="toggles">
+          <button class="active" data-filter="all">全部</button>
+          <button data-filter="steel">废钢</button>
+          <button data-filter="copper">废铜</button>
+          <button data-filter="focus">常用</button>
+          <button id="copyBtn">复制报价</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 64px;">类别</th>
+              <th style="width: 128px;">品名</th>
+              <th>规格 / 说明</th>
+              <th class="num" style="width: 104px;">元/吨</th>
+              <th class="num" style="width: 104px;">元/公斤</th>
+              <th class="num" style="width: 92px;">元/斤</th>
+              <th style="width: 162px;">更新时间</th>
+            </tr>
+          </thead>
+          <tbody id="quoteRows"></tbody>
+        </table>
+      </div>
+      <div class="note" id="resultNote"></div>
+    </section>
+
+    <section class="grid">
+      <div class="panel">
+        <div class="panel-head">
+          <h2>快速换算</h2>
+          <span class="badge"><span class="dot"></span>自动按重量计算金额</span>
+        </div>
+        <div class="calc">
+          <div class="field">
+            <label for="itemSelect">选择品名</label>
+            <select id="itemSelect"></select>
+          </div>
+          <div class="field">
+            <label for="priceInput">报价</label>
+            <input id="priceInput" type="number" inputmode="decimal">
+          </div>
+          <div class="field">
+            <label for="unitSelect">报价单位</label>
+            <select id="unitSelect">
+              <option value="ton">元/吨</option>
+              <option value="kg">元/公斤</option>
+              <option value="jin">元/斤</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="weightInput">重量</label>
+            <input id="weightInput" type="number" inputmode="decimal" value="1">
+          </div>
+          <div class="field">
+            <label for="weightUnit">重量单位</label>
+            <select id="weightUnit">
+              <option value="ton">吨</option>
+              <option value="kg">公斤</option>
+              <option value="jin">斤</option>
+            </select>
+          </div>
+          <div class="calc-result">
+            <strong id="amountResult">--</strong>
+            <span id="unitResult">--</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <h2>数据口径</h2>
+          <span class="badge">今天是周六，公开行情通常以前一交易日为准</span>
+        </div>
+        <div class="note">
+          废钢：来自你上传的沙钢常州基地现金价格表，2026年5月20日 00:00 起执行。<br>
+          废铜：公开行情以 2026年5月22日、5月21日、5月15日可查价格为主；江苏本地废铜细项多在行情站登录后显示，所以这里先用公开市场价做到手参考。<br>
+          实际成交要看含税/不含税、送到/自提、干净程度、水分、铁杂、压块尺寸和当天收货方扣杂。
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const steelDate = "沙钢常州基地 2026-05-20 00:00起";
+    const copperDate = "公开市场 2026-05-22/21/15";
+
+    const quotes = [
+      { type: "steel", focus: true, name: "清洁废钢1", spec: "汽车外壳冲剪切片，全新料、无锈蚀", price: 2329, date: steelDate },
+      { type: "steel", focus: true, name: "优质废钢1", spec: "新钢板边角料 6mm+，80cm", price: 2306, date: steelDate },
+      { type: "steel", focus: true, name: "钢筋切粒1", spec: "纯钢筋切粒，无杂质、无合锌料，8mm+、12cm", price: 2297, date: steelDate },
+      { type: "steel", focus: true, name: "炉料1", spec: "厚度6mm+，长度40cm内，冲压锻打件、螺纹钢等", price: 2279, date: steelDate },
+      { type: "steel", focus: true, name: "炉料2", spec: "厚度4mm+，长度40cm内，汽车切边、优质矽钢片", price: 2252, date: steelDate },
+      { type: "steel", focus: true, name: "重废1", spec: "钢锭坯、60方切头切尾等，厚度20mm以上", price: 2261, date: steelDate },
+      { type: "steel", name: "重废2", spec: "各类纯工业钢材切头切尾边角料等，螺纹钢10mm+、矽钢片、模具钢", price: 2234, date: steelDate },
+      { type: "steel", name: "重废3", spec: "工业边角料5-6mm+，建筑扣件、螺纹钢8mm+、冷热轧料2mm+、机械生铁", price: 2207, date: steelDate },
+      { type: "steel", name: "钢筋压块1", spec: "不能混有编织袋、橡胶、塑料等杂物，8mm+，60x60x60cm", price: 2252, date: steelDate },
+      { type: "steel", name: "钢筋压块2", spec: "8mm+，150x60x60cm", price: 2198, date: steelDate },
+      { type: "steel", name: "钢筋压块3", spec: "6mm+，150x60x60cm", price: 2171, date: steelDate },
+      { type: "steel", name: "剪切中废1", spec: "工业废钢剪切加工料 3mm+，纯镀锌压块", price: 2162, date: steelDate },
+      { type: "steel", name: "中废1", spec: "工业废钢加工料，脚手架管、内河船板料、钢管等", price: 2131, date: steelDate },
+      { type: "steel", name: "中废2", spec: "工业废料、民用钢模板、自来水管、钢筋扎辅 6mm+", price: 2104, date: steelDate },
+      { type: "steel", name: "中废3", spec: "工业废料 2mm+，摩托车架、C型钢等", price: 2077, date: steelDate },
+      { type: "steel", name: "小型1", spec: "电瓶车架、小方管、小圆管等，长度≤80cm x 60cm", price: 2023, date: steelDate },
+      { type: "steel", name: "小型2", spec: "车厢栏板、大棚管、自行车架等", price: 1987, date: steelDate },
+      { type: "steel", name: "小型3", spec: "轻钢龙骨、家用电器铁皮、超市货架、打包铁、配重铁等", price: 1951, date: steelDate },
+      { type: "steel", name: "小型4", spec: "彩钢瓦铁皮、车壳铁皮等", price: 1915, date: steelDate },
+      { type: "steel", name: "统废", spec: "社会收集混杂薄铁皮、乱铁丝、钢丝绳等", price: 1825, date: steelDate },
+      { type: "steel", name: "废钢压块1", spec: "摩托车架、电瓶车架、小方管压块等，≤700x700x600mm，>1.2mm", price: 2005, date: steelDate },
+      { type: "steel", name: "废钢压块2", spec: "大棚管、整锅三轮车、进门电器料铁皮压块等，>1mm", price: 1951, date: steelDate },
+      { type: "steel", name: "废钢压块3", spec: "轻钢龙骨、汽车壳铁皮、国产工业电器料、打包带铁皮压块等，>0.8mm", price: 1906, date: steelDate },
+      { type: "steel", name: "废钢压块4", spec: "彩钢瓦铁皮、铁丝、家用电器料铁皮压块等，>0.5mm", price: 1861, date: steelDate },
+      { type: "steel", name: "废钢压块5", spec: "废钢丝绳、鸡笼铁丝压块等，>0.5mm", price: 1807, date: steelDate },
+      { type: "steel", name: "废钢压块6", spec: "电缆铁皮压块等，>0.3mm", price: 1753, date: steelDate },
+      { type: "steel", name: "废钢压块7", spec: "饮料食品类易拉罐铁皮压块等，≥0.2mm", price: 1663, date: steelDate },
+      { type: "steel", name: "废钢压块8", spec: "社会收集混杂薄铁皮压块，<0.2mm", price: 1573, date: steelDate },
+      { type: "steel", name: "粉碎料1", spec: "钢模板、废旧汽车、摩托车架、电瓶车架、三轮车架、车厢板", price: 2171, date: steelDate },
+      { type: "steel", name: "粉碎料2", spec: "自行车架、C型钢≥2mm", price: 2135, date: steelDate },
+      { type: "steel", name: "粉碎料3", spec: "工业电器料、轻钢龙骨粉碎料", price: 2099, date: steelDate },
+      { type: "steel", name: "粉碎料4", spec: "洗衣机、冰箱壳之类家用电器粉碎料", price: 2045, date: steelDate },
+      { type: "steel", name: "粉碎料5", spec: "彩钢瓦、铁皮之类松碎料", price: 1973, date: steelDate },
+      { type: "steel", name: "次新料1", spec: "各类冷热轧料，表面无锈、涂层，≤2500x600mm，≥2mm", price: 2198, date: steelDate },
+      { type: "steel", name: "次新料2", spec: "各类冷热轧料，表面无锈、涂层，≤2500x600mm，<2mm", price: 2180, date: steelDate },
+      { type: "steel", name: "次新料3", spec: "各类镀锌料，工厂余料，≤2500x600mm，≥2mm", price: 2153, date: steelDate },
+      { type: "steel", name: "次新料4", spec: "各类镀锌料，工厂余料，≤2500x600mm，<2mm", price: 2135, date: steelDate },
+
+      { type: "copper", focus: true, name: "普光", spec: "普通光亮铜，公开快讯：华南普通光亮 91100 元/吨", price: 91100, date: "Mysteel公开快讯 2026-05-22" },
+      { type: "copper", focus: true, name: "清光", spec: "按光亮铜参考，公开汇总价 91200 元/吨", price: 91200, date: "Mysteel公开快讯 2026-05-21" },
+      { type: "copper", focus: true, name: "低压缆粗", spec: "低压缆粗，公开快讯：华南低压缆粗 91300 元/吨", price: 91300, date: "Mysteel公开快讯 2026-05-22" },
+      { type: "copper", focus: true, name: "高压缆粗", spec: "高压缆粗，上海公开价 91800 元/吨", price: 91800, date: "Mysteel公开快讯 2026-05-15" },
+      { type: "copper", focus: true, name: "光亮铜", spec: "Cu：98%，公开汇总价 91200 元/吨", price: 91200, date: "Mysteel公开快讯 2026-05-21" },
+      { type: "copper", name: "1#铜", spec: "Cu：98%，公开汇总价 91300 元/吨", price: 91300, date: "Mysteel公开快讯 2026-05-21" },
+      { type: "copper", name: "2#铜", spec: "Cu：92-96%，公开汇总价 88800 元/吨", price: 88800, date: "Mysteel公开快讯 2026-05-21" },
+      { type: "copper", name: "马达铜", spec: "公开汇总价 87100 元/吨", price: 87100, date: "Mysteel公开快讯 2026-05-21" },
+      { type: "copper", name: "黄杂铜", spec: "Cu：58-59%，公开汇总价 55800 元/吨", price: 55800, date: "Mysteel公开快讯 2026-05-21" },
+      { type: "copper", name: "黄铜边料", spec: "Cu：62-65%，公开汇总价 61800 元/吨", price: 61800, date: "Mysteel公开快讯 2026-05-21" },
+      { type: "copper", name: "H65黄铜边料", spec: "佛山 H65 黄铜边料 67000 元/吨参考", price: 67000, date: "Mysteel公开快讯 2026-05-11" },
+      { type: "copper", name: "T2角料", spec: "芜湖 T2角料 91100 元/吨参考", price: 91100, date: "Mysteel公开快讯 2026-05-18" }
+    ];
+
+    const typeText = { steel: "废钢", copper: "废铜" };
+    let currentFilter = "all";
+
+    function pad(num) {
+      return String(num).padStart(2, "0");
+    }
+
+    function nowCN() {
+      return new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Shanghai" }));
+    }
+
+    function updateClock() {
+      const d = nowCN();
+      const week = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"][d.getDay()];
+      document.getElementById("todayText").textContent = `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${week}`;
+      document.getElementById("timeText").textContent = `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())} 上海时间`;
+    }
+
+    function money(value, digits = 0) {
+      return Number(value).toLocaleString("zh-CN", {
+        minimumFractionDigits: digits,
+        maximumFractionDigits: digits
+      });
+    }
+
+    function filteredQuotes() {
+      const q = document.getElementById("searchInput").value.trim().toLowerCase();
+      const sort = document.getElementById("sortSelect").value;
+      let rows = quotes.filter(item => {
+        const filterOk = currentFilter === "all" || item.type === currentFilter || (currentFilter === "focus" && item.focus);
+        const text = `${item.name} ${item.spec} ${typeText[item.type]}`.toLowerCase();
+        return filterOk && (!q || text.includes(q));
+      });
+      if (sort === "high") rows = [...rows].sort((a, b) => b.price - a.price);
+      if (sort === "low") rows = [...rows].sort((a, b) => a.price - b.price);
+      return rows;
+    }
+
+    function renderQuotes() {
+      const tbody = document.getElementById("quoteRows");
+      const rows = filteredQuotes();
+      tbody.innerHTML = "";
+      rows.forEach(item => {
+        const kg = item.price / 1000;
+        const jin = kg / 2;
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td><span class="type-pill type-${item.type}">${typeText[item.type]}</span></td>
+          <td><strong>${item.name}</strong></td>
+          <td>${item.spec}</td>
+          <td class="num price">${money(item.price)}</td>
+          <td class="num">${money(kg, item.type === "steel" ? 3 : 2)}</td>
+          <td class="num">${money(jin, item.type === "steel" ? 3 : 2)}</td>
+          <td>${item.date}</td>
+        `;
+        tr.addEventListener("click", () => selectItem(item.name));
+        tbody.appendChild(tr);
+      });
+      document.getElementById("resultNote").textContent = `当前显示 ${rows.length} 条。废钢为钢厂到手价参考；废铜为公开市场价参考，回收站实收价通常会按品相、含税、运费和扣杂调整。`;
+    }
+
+    function renderItemSelect() {
+      const select = document.getElementById("itemSelect");
+      select.innerHTML = "";
+      quotes.forEach((item, index) => {
+        const opt = document.createElement("option");
+        opt.value = index;
+        opt.textContent = `${typeText[item.type]} - ${item.name}`;
+        select.appendChild(opt);
+      });
+      selectItem("清洁废钢1");
+    }
+
+    function selectItem(name) {
+      const index = quotes.findIndex(item => item.name === name);
+      if (index < 0) return;
+      const item = quotes[index];
+      document.getElementById("itemSelect").value = index;
+      document.getElementById("priceInput").value = item.price;
+      document.getElementById("unitSelect").value = "ton";
+      document.getElementById("weightUnit").value = item.type === "steel" ? "ton" : "kg";
+      document.getElementById("weightInput").value = item.type === "steel" ? 1 : 100;
+      calculate();
+    }
+
+    function calculate() {
+      const price = Number(document.getElementById("priceInput").value || 0);
+      const unit = document.getElementById("unitSelect").value;
+      const weight = Number(document.getElementById("weightInput").value || 0);
+      const weightUnit = document.getElementById("weightUnit").value;
+      const yuanPerKg = unit === "ton" ? price / 1000 : unit === "jin" ? price * 2 : price;
+      const kg = weightUnit === "ton" ? weight * 1000 : weightUnit === "jin" ? weight / 2 : weight;
+      const amount = yuanPerKg * kg;
+      document.getElementById("amountResult").textContent = `合计 ${money(amount, 2)} 元`;
+      document.getElementById("unitResult").textContent = `单价 ${money(yuanPerKg, 3)} 元/公斤，${money(yuanPerKg / 2, 3)} 元/斤`;
+    }
+
+    function copySummary() {
+      const lines = filteredQuotes().map(item => {
+        const kg = item.price / 1000;
+        const jin = kg / 2;
+        return `${typeText[item.type]} ${item.name}：${item.price}元/吨，${kg.toFixed(item.type === "steel" ? 3 : 2)}元/公斤，${jin.toFixed(item.type === "steel" ? 3 : 2)}元/斤`;
+      });
+      navigator.clipboard.writeText(lines.join("\n")).then(() => {
+        const btn = document.getElementById("copyBtn");
+        btn.textContent = "已复制";
+        setTimeout(() => btn.textContent = "复制报价", 1200);
+      }).catch(() => {});
+    }
+
+    document.querySelectorAll("[data-filter]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        currentFilter = btn.dataset.filter;
+        document.querySelectorAll("[data-filter]").forEach(item => item.classList.toggle("active", item === btn));
+        renderQuotes();
+      });
+    });
+
+    document.getElementById("searchInput").addEventListener("input", renderQuotes);
+    document.getElementById("sortSelect").addEventListener("change", renderQuotes);
+    document.getElementById("itemSelect").addEventListener("change", event => {
+      const item = quotes[Number(event.target.value)];
+      if (item) selectItem(item.name);
+    });
+    ["priceInput", "unitSelect", "weightInput", "weightUnit"].forEach(id => {
+      document.getElementById(id).addEventListener("input", calculate);
+      document.getElementById(id).addEventListener("change", calculate);
+    });
+    document.getElementById("copyBtn").addEventListener("click", copySummary);
+
+    document.getElementById("steelMax").textContent = `${Math.max(...quotes.filter(item => item.type === "steel").map(item => item.price))}`;
+    updateClock();
+    setInterval(updateClock, 1000);
+    renderItemSelect();
+    renderQuotes();
+  </script>
+</body>
+</html>
