@@ -1,0 +1,55 @@
+{
+  "generatedAt": "2026-05-23T16:30:00+08:00",
+  "today": "2026-05-23",
+  "status": {
+    "copper": {
+      "updatedToday": false,
+      "message": "暂未更新",
+      "note": "今天是2026-05-23，当前公开来源最新为2026-05-22江苏废铜价格。"
+    },
+    "steel": {
+      "updatedToday": false,
+      "message": "暂未更新",
+      "note": "当前详细废钢料型仍按你上传的沙钢常州基地2026-05-20价格表显示。"
+    }
+  },
+  "copper": [
+    {
+      "name": "光亮铜（Cu＞98.5%）江苏",
+      "spec": "SMM江苏废铜价格，光亮铜",
+      "range": "91000-91200",
+      "price": 91100,
+      "change": -400,
+      "unit": "元/吨",
+      "source": "SMM江苏废铜价格",
+      "sourceUrl": "https://hq.smm.cn/metal-scraps/content/103916389",
+      "sourceDate": "2026-05-22",
+      "updatedToday": false
+    },
+    {
+      "name": "缆粗（江苏）",
+      "spec": "SMM江苏废铜价格，缆粗",
+      "range": "91300-91500",
+      "price": 91400,
+      "change": -400,
+      "unit": "元/吨",
+      "source": "SMM江苏废铜价格",
+      "sourceUrl": "https://hq.smm.cn/metal-scraps/content/103916389",
+      "sourceDate": "2026-05-22",
+      "updatedToday": false
+    },
+    {
+      "name": "火烧线（江苏）",
+      "spec": "SMM江苏废铜价格，火烧线",
+      "range": "89700-90300",
+      "price": 90000,
+      "change": -400,
+      "unit": "元/吨",
+      "source": "SMM江苏废铜价格",
+      "sourceUrl": "https://hq.smm.cn/metal-scraps/content/103916389",
+      "sourceDate": "2026-05-22",
+      "updatedToday": false
+    }
+  ],
+  "steelSources": []
+}
