@@ -1,0 +1,38 @@
+name: Update metal prices
+
+on:
+  schedule:
+    - cron: "15 1-10 * * 1-6"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Prepare script
+        run: |
+          mkdir -p scripts
+          cp update_prices.py scripts/update_prices.py
+
+      - name: Fetch prices
+        run: python scripts/update_prices.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Update metal prices"
+          git push
