@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-05-29T20:35:01+08:00",
-  "today": "2026-05-29",
+  "generatedAt": "2026-05-30T17:25:42+08:00",
+  "today": "2026-05-30",
   "status": {
     "copper": {
-      "updatedToday": true,
-      "message": "今日已更新",
-      "note": "已读取2026-05-29江苏废铜价格。"
+      "updatedToday": false,
+      "message": "暂未更新",
+      "note": "暂未更新，公开来源最新为2026-05-29江苏废铜价格。"
     },
     "steel": {
-      "updatedToday": true,
-      "message": "今日已更新",
-      "note": "已发现今日钢厂废钢报价更新；详细料型如为图片表，页面保留沙钢常州基地参考价。"
+      "updatedToday": false,
+      "message": "暂未更新",
+      "note": "暂未发现今日钢厂废钢报价更新；下方显示沙钢常州基地参考价。"
     }
   },
   "copper": [
@@ -24,7 +24,7 @@
       "source": "SMM江苏废铜价格",
       "sourceUrl": "https://hq.smm.cn/metal-scraps/content/103928494",
       "sourceDate": "2026-05-29",
-      "updatedToday": true
+      "updatedToday": false
     },
     {
       "name": "缆粗（江苏）",
@@ -36,7 +36,7 @@
       "source": "SMM江苏废铜价格",
       "sourceUrl": "https://hq.smm.cn/metal-scraps/content/103928494",
       "sourceDate": "2026-05-29",
-      "updatedToday": true
+      "updatedToday": false
     },
     {
       "name": "火烧线（江苏）",
@@ -48,7 +48,7 @@
       "source": "SMM江苏废铜价格",
       "sourceUrl": "https://hq.smm.cn/metal-scraps/content/103928494",
       "sourceDate": "2026-05-29",
-      "updatedToday": true
+      "updatedToday": false
     }
   ],
   "steelSources": [
