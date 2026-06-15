@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-06-13T18:37:26+08:00",
-  "today": "2026-06-13",
+  "generatedAt": "2026-06-16T02:47:39+08:00",
+  "today": "2026-06-16",
   "status": {
     "copper": {
       "updatedToday": false,
       "message": "暂未更新",
-      "note": "暂未更新，公开来源最新为2026-06-12江苏废铜价格。"
+      "note": "暂未更新，公开来源最新为2026-06-15江苏废铜价格。"
     },
     "steel": {
       "updatedToday": false,
@@ -17,63 +17,71 @@
     {
       "name": "光亮铜（Cu＞98.5%）江苏",
       "spec": "SMM江苏废铜价格，光亮铜（Cu＞98.5%）江苏",
-      "range": "91200-91400",
-      "price": 91300,
-      "change": 600.0,
+      "range": "91600-91800",
+      "price": 91700,
+      "change": 400.0,
       "unit": "元/吨",
       "source": "SMM江苏废铜价格",
-      "sourceUrl": "https://hq.smm.cn/metal-scraps/content/103952008",
-      "sourceDate": "2026-06-12",
+      "sourceUrl": "https://hq.smm.cn/metal-scraps/content/103954704",
+      "sourceDate": "2026-06-15",
       "updatedToday": false
     },
     {
       "name": "缆粗（江苏）",
       "spec": "SMM江苏废铜价格，缆粗（江苏）",
-      "range": "91500-91700",
-      "price": 91600,
-      "change": 600.0,
+      "range": "91900-92100",
+      "price": 92000,
+      "change": 400.0,
       "unit": "元/吨",
       "source": "SMM江苏废铜价格",
-      "sourceUrl": "https://hq.smm.cn/metal-scraps/content/103952008",
-      "sourceDate": "2026-06-12",
+      "sourceUrl": "https://hq.smm.cn/metal-scraps/content/103954704",
+      "sourceDate": "2026-06-15",
       "updatedToday": false
     },
     {
       "name": "火烧线（江苏）",
       "spec": "SMM江苏废铜价格，火烧线（江苏）",
-      "range": "89900-90500",
-      "price": 90200,
-      "change": 600.0,
+      "range": "90300-90900",
+      "price": 90600,
+      "change": 400.0,
       "unit": "元/吨",
       "source": "SMM江苏废铜价格",
-      "sourceUrl": "https://hq.smm.cn/metal-scraps/content/103952008",
-      "sourceDate": "2026-06-12",
+      "sourceUrl": "https://hq.smm.cn/metal-scraps/content/103954704",
+      "sourceDate": "2026-06-15",
       "updatedToday": false
     }
   ],
   "steelSources": [
     {
+      "title": "6月15日14时32分江苏鸿泰钢铁 废钢收购报价",
+      "url": "https://hq.smm.cn/metal-scraps/content/103955454",
+      "publishTime": "2026-06-15 14:32"
+    },
+    {
+      "title": "6月15日沙钢本部 废钢收购报价",
+      "url": "https://hq.smm.cn/metal-scraps/content/103954367",
+      "publishTime": "2026-06-15 10:49"
+    },
+    {
+      "title": "6月15日沙钢锡山基地 废钢采购报价",
+      "url": "https://hq.smm.cn/metal-scraps/content/103954366",
+      "publishTime": "2026-06-15 10:48"
+    },
+    {
+      "title": "6月15日江苏永钢 废钢收购报价",
+      "url": "https://hq.smm.cn/metal-scraps/content/103954352"
+    },
+    {
+      "title": "6月15日江苏鸿泰钢铁 废钢收购报价",
+      "url": "https://hq.smm.cn/metal-scraps/content/103953702"
+    },
+    {
       "title": "6月12日沙钢本部 废钢收购报价",
-      "url": "https://hq.smm.cn/metal-scraps/content/103951383",
-      "publishTime": "2026-06-12 10:16"
+      "url": "https://hq.smm.cn/metal-scraps/content/103951383"
     },
     {
       "title": "6月12日沙钢锡山基地 废钢采购报价",
-      "url": "https://hq.smm.cn/metal-scraps/content/103951381",
-      "publishTime": "2026-06-12 10:15"
-    },
-    {
-      "title": "6月12日江苏鸿泰钢铁 废钢收购报价",
-      "url": "https://hq.smm.cn/metal-scraps/content/103951094",
-      "publishTime": "2026-06-12 09:13"
-    },
-    {
-      "title": "6月11日沙钢本部 废钢收购报价",
-      "url": "https://hq.smm.cn/metal-scraps/content/103949457"
-    },
-    {
-      "title": "6月11日沙钢锡山基地 废钢采购报价",
-      "url": "https://hq.smm.cn/metal-scraps/content/103949449"
+      "url": "https://hq.smm.cn/metal-scraps/content/103951381"
     }
   ]
 }
