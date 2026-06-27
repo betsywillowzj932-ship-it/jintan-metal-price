@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-06-26T20:26:41+08:00",
-  "today": "2026-06-26",
+  "generatedAt": "2026-06-27T13:03:50+08:00",
+  "today": "2026-06-27",
   "status": {
     "copper": {
       "updatedToday": false,
@@ -8,9 +8,9 @@
       "note": "抓取失败：could not convert string to float: ''"
     },
     "steel": {
-      "updatedToday": true,
-      "message": "今日已更新",
-      "note": "已发现今日钢厂废钢报价更新；详细料型如为图片表，页面保留沙钢常州基地参考价。"
+      "updatedToday": false,
+      "message": "暂未更新",
+      "note": "暂未发现今日钢厂废钢报价更新；下方显示沙钢常州基地参考价。"
     }
   },
   "copper": [
