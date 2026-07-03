@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-02T19:43:24+08:00",
-  "today": "2026-07-02",
+  "generatedAt": "2026-07-03T12:57:40+08:00",
+  "today": "2026-07-03",
   "status": {
     "copper": {
       "updatedToday": false,
@@ -53,27 +53,31 @@
   ],
   "steelSources": [
     {
+      "title": "7月3日沙钢本部 废钢收购报价",
+      "url": "https://hq.smm.cn/metal-scraps/content/103985717",
+      "publishTime": "2026-07-03 10:34"
+    },
+    {
+      "title": "7月3日沙钢锡山基地 废钢采购报价",
+      "url": "https://hq.smm.cn/metal-scraps/content/103985714",
+      "publishTime": "2026-07-03 10:34"
+    },
+    {
+      "title": "7月3日江苏鸿泰钢铁 废钢收购报价",
+      "url": "https://hq.smm.cn/metal-scraps/content/103985488",
+      "publishTime": "2026-07-03 10:13"
+    },
+    {
+      "title": "7月3日江苏永钢 废钢收购报价",
+      "url": "https://hq.smm.cn/metal-scraps/content/103985475"
+    },
+    {
       "title": "7月2日沙钢本部 废钢收购报价",
-      "url": "https://hq.smm.cn/metal-scraps/content/103983126",
-      "publishTime": "2026-07-02 10:22"
+      "url": "https://hq.smm.cn/metal-scraps/content/103983126"
     },
     {
       "title": "7月2日沙钢锡山基地 废钢采购报价",
-      "url": "https://hq.smm.cn/metal-scraps/content/103983110",
-      "publishTime": "2026-07-02 10:22"
-    },
-    {
-      "title": "7月2日江苏鸿泰钢铁 废钢收购报价",
-      "url": "https://hq.smm.cn/metal-scraps/content/103982932",
-      "publishTime": "2026-07-02 09:49"
-    },
-    {
-      "title": "7月2日江苏永钢 废钢收购报价",
-      "url": "https://hq.smm.cn/metal-scraps/content/103982930"
-    },
-    {
-      "title": "7月1日10时 沙钢锡山基地 废钢采购报价",
-      "url": "https://hq.smm.cn/metal-scraps/content/103981061"
+      "url": "https://hq.smm.cn/metal-scraps/content/103983110"
     }
   ]
 }
