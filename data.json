@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-10T11:18:31+08:00",
+  "generatedAt": "2026-08-10T13:43:55+08:00",
   "today": "2026-08-10",
   "status": {
     "copper": {
@@ -53,6 +53,11 @@
   ],
   "steelSources": [
     {
+      "title": "8月10日沙钢本部 废钢采购报价",
+      "url": "https://hq.smm.cn/metal-scraps/content/104050636",
+      "publishTime": "2026-08-10 11:19"
+    },
+    {
       "title": "8月10日沙钢锡山基地 废钢采购报价",
       "url": "https://hq.smm.cn/metal-scraps/content/104049807",
       "publishTime": "2026-08-10 10:05"
@@ -64,8 +69,7 @@
     },
     {
       "title": "8月10日江苏永钢 废钢收购报价",
-      "url": "https://hq.smm.cn/metal-scraps/content/104049682",
-      "publishTime": "2026-08-10 09:33"
+      "url": "https://hq.smm.cn/metal-scraps/content/104049682"
     },
     {
       "title": "8月7日16时 沙钢锡山基地 废钢采购报价",
