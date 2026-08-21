@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-08-21T15:57:51+08:00",
+  "generatedAt": "2026-08-21T16:58:26+08:00",
   "today": "2026-08-21",
   "status": {
     "copper": {
       "updatedToday": false,
       "message": "暂未更新",
-      "note": "抓取失败：<urlopen error timed out>"
+      "note": "抓取失败：没有找到江苏废铜价格文章"
     },
     "steel": {
       "updatedToday": false,
       "message": "暂未更新",
-      "note": "抓取失败：<urlopen error timed out>"
+      "note": "暂未发现今日钢厂废钢报价更新；下方显示沙钢常州基地参考价。"
     }
   },
   "copper": [
