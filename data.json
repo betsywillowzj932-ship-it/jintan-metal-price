@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-29T21:50:23+08:00",
-  "today": "2026-08-29",
+  "generatedAt": "2026-08-31T15:02:37+08:00",
+  "today": "2026-08-31",
   "status": {
     "copper": {
       "updatedToday": false,
@@ -8,9 +8,9 @@
       "note": "抓取失败：could not convert string to float: ''"
     },
     "steel": {
-      "updatedToday": false,
-      "message": "暂未更新",
-      "note": "暂未发现今日钢厂废钢报价更新；下方显示沙钢常州基地参考价。"
+      "updatedToday": true,
+      "message": "今日已更新",
+      "note": "已发现今日钢厂废钢报价更新；详细料型如为图片表，页面保留沙钢常州基地参考价。"
     }
   },
   "copper": [
@@ -53,27 +53,31 @@
   ],
   "steelSources": [
     {
+      "title": "8月31日沙钢本部 废钢收购报价",
+      "url": "https://hq.smm.cn/metal-scraps/content/104087455",
+      "publishTime": "2026-08-31 10:52"
+    },
+    {
+      "title": "8月31日沙钢锡山基地 废钢采购报价",
+      "url": "https://hq.smm.cn/metal-scraps/content/104087125",
+      "publishTime": "2026-08-31 10:24"
+    },
+    {
+      "title": "8月31日江苏鸿泰钢铁 废钢收购报价",
+      "url": "https://hq.smm.cn/metal-scraps/content/104087022",
+      "publishTime": "2026-08-31 10:03"
+    },
+    {
+      "title": "8月31日江苏永钢 废钢收购报价",
+      "url": "https://hq.smm.cn/metal-scraps/content/104086995"
+    },
+    {
       "title": "8月28日沙钢锡山基地 废钢采购报价",
-      "url": "https://hq.smm.cn/metal-scraps/content/104084278",
-      "publishTime": "2026-08-28 10:28"
+      "url": "https://hq.smm.cn/metal-scraps/content/104084278"
     },
     {
       "title": "8月28日沙钢本部 废钢收购报价",
-      "url": "https://hq.smm.cn/metal-scraps/content/104084254",
-      "publishTime": "2026-08-28 10:27"
-    },
-    {
-      "title": "8月28日江苏鸿泰钢铁 废钢收购报价",
-      "url": "https://hq.smm.cn/metal-scraps/content/104084114",
-      "publishTime": "2026-08-28 10:22"
-    },
-    {
-      "title": "8月28日江苏永钢 废钢收购报价",
-      "url": "https://hq.smm.cn/metal-scraps/content/104084079"
-    },
-    {
-      "title": "8月27日沙钢锡山基地 废钢采购报价",
-      "url": "https://hq.smm.cn/metal-scraps/content/104081972"
+      "url": "https://hq.smm.cn/metal-scraps/content/104084254"
     }
   ]
 }
