@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-23T14:02:31+08:00",
+  "generatedAt": "2026-10-23T19:41:14+08:00",
   "today": "2026-10-23",
   "status": {
     "copper": {
@@ -53,6 +53,11 @@
   ],
   "steelSources": [
     {
+      "title": "10月23日14时40分江苏鸿泰钢铁 废钢收购报价",
+      "url": "https://hq.smm.cn/metal-scraps/content/104176114",
+      "publishTime": "2026-10-23 14:41"
+    },
+    {
       "title": "10月23日沙钢锡山基地 废钢采购报价",
       "url": "https://hq.smm.cn/metal-scraps/content/104174582",
       "publishTime": "2026-10-23 10:38"
@@ -64,8 +69,7 @@
     },
     {
       "title": "10月23日江苏鸿泰钢铁 废钢收购报价",
-      "url": "https://hq.smm.cn/metal-scraps/content/104174185",
-      "publishTime": "2026-10-23 09:34"
+      "url": "https://hq.smm.cn/metal-scraps/content/104174185"
     },
     {
       "title": "10月23日江苏永钢 废钢收购报价",
