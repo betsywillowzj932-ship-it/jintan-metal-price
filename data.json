@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06T00:28:47+08:00",
+  "generatedAt": "2026-11-06T15:56:03+08:00",
   "today": "2026-11-06",
   "status": {
     "copper": {
@@ -8,9 +8,9 @@
       "note": "抓取失败：could not convert string to float: ''"
     },
     "steel": {
-      "updatedToday": false,
-      "message": "暂未更新",
-      "note": "暂未发现今日钢厂废钢报价更新；下方显示沙钢常州基地参考价。"
+      "updatedToday": true,
+      "message": "今日已更新",
+      "note": "已发现今日钢厂废钢报价更新；详细料型如为图片表，页面保留沙钢常州基地参考价。"
     }
   },
   "copper": [
@@ -53,31 +53,31 @@
   ],
   "steelSources": [
     {
+      "title": "11月6日14时50分江苏鸿泰钢铁 废钢收购报价",
+      "url": "https://hq.smm.cn/metal-scraps/content/104209693",
+      "publishTime": "2026-11-06 14:50"
+    },
+    {
+      "title": "11月6日沙钢本部 废钢收购报价",
+      "url": "https://hq.smm.cn/metal-scraps/content/104208486",
+      "publishTime": "2026-11-06 10:52"
+    },
+    {
+      "title": "11月6日沙钢锡山基地 废钢采购报价",
+      "url": "https://hq.smm.cn/metal-scraps/content/104207975",
+      "publishTime": "2026-11-06 10:16"
+    },
+    {
+      "title": "11月6日江苏永钢 废钢收购报价",
+      "url": "https://hq.smm.cn/metal-scraps/content/104207906"
+    },
+    {
+      "title": "11月6日江苏鸿泰钢铁 废钢收购报价",
+      "url": "https://hq.smm.cn/metal-scraps/content/104207803"
+    },
+    {
       "title": "11月5日沙钢本部 废钢收购报价",
-      "url": "https://hq.smm.cn/metal-scraps/content/104205853",
-      "publishTime": "2026-11-05 10:48"
-    },
-    {
-      "title": "11月5日沙钢锡山基地 废钢采购报价",
-      "url": "https://hq.smm.cn/metal-scraps/content/104205444",
-      "publishTime": "2026-11-05 09:57"
-    },
-    {
-      "title": "11月5日江苏鸿泰钢铁 废钢收购报价",
-      "url": "https://hq.smm.cn/metal-scraps/content/104205431",
-      "publishTime": "2026-11-05 09:52"
-    },
-    {
-      "title": "11月5日江苏永钢 废钢收购报价",
-      "url": "https://hq.smm.cn/metal-scraps/content/104205346"
-    },
-    {
-      "title": "11月4日沙钢本部 废钢收购报价",
-      "url": "https://hq.smm.cn/metal-scraps/content/104203590"
-    },
-    {
-      "title": "11月4日沙钢锡山基地 废钢采购报价",
-      "url": "https://hq.smm.cn/metal-scraps/content/104202823"
+      "url": "https://hq.smm.cn/metal-scraps/content/104205853"
     }
   ]
 }
